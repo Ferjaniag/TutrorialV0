@@ -1,0 +1,31 @@
+
+<button class="btn btn-success" [routerLink]="['/books', 'add']">
+  Ajouter un livre
+  </button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Auteur</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Editer</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <th scope="row">{{book.id}}</th>
+      <td>{{book.title | uppercase}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.price}}</td>
+      <td><button
+        class="btn btn-primary"
+        [routerLink]="['/books', 'edit', book.id]" >
+          Editer
+        </button>
+      </td>
+      <td><button class="btn btn-danger" (click)="deleteBook(book.id)" >Supprimer</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,39 @@
+<h2>Editer le livre {{book? book.title : ''}}</h2>
+
+<form [formGroup]="editForm" (ngSubmit)="editBook()" >
+  <div class="mb-3">
+    <label for="titre" class="form-label">Titre *</label>
+    <input
+      type="text"
+      class="form-control"
+      id="titre"
+      formControlName="title">
+  </div>
+  <div class="mb-3">
+    <label
+      for="auteur"
+      class="form-label">
+        Auteur *
+      </label>
+    <input
+      type="text"
+      class="form-control"
+      id="auteur"
+      formControlName="author"
+      >
+  </div>
+  <div class="mb-3">
+    <label for="prix" class="form-label">Prix</label>
+    <input type="text"
+      class="form-control"
+      id="prix"
+      formControlName="price" >
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="editForm.invalid" >Valider</button>
+</form>
+
+
+
